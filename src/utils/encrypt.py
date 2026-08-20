@@ -2,8 +2,8 @@ from src.utils import chess
 import os
 
 class ChessEncrypter:
-    def __init__(self, data, output_dir="examples/ex1_text/output"):
-        self.data = data
+    def __init__(self, input_file, output_dir="examples/ex1_text/output"):
+        self.input_file = input_file
         self.output_dir = output_dir
         self.game = chess.new_game()
         self.game_counter = 0
@@ -13,7 +13,22 @@ class ChessEncrypter:
             os.makedirs(self.output_dir)
 
     def encrypt(self):
-        pass
+        # Read input file as binary
+        with open(self.input_file, "rb") as f:
+            byte = f.read(1)
+            while byte:
+                # Convert byte to int
+                byte_int = int.from_bytes(byte, "big")
+                # Convert int to binary string
+                binary_str = format(byte_int, "08b")
+                # Store each bit in the chess game
+                for bit in binary_str:
+                    if bit == "0":
+                        self.store_zero()
+                    else:
+                        self.store_one()
+                # Read next byte
+                byte = f.read(1)
 
     def check_game_over(self):
         if chess.is_game_over(self.game):
