@@ -12,11 +12,10 @@ def get_possible_moves(board: str) -> list:
     return sorted(m.uci() for m in b.legal_moves)
 
 
-def make_move(board: str, from_pos: str, to_pos: str) -> str:
+def make_move(board: str, move: str) -> str:
     """Make a move on the board and return the new board state"""
     b = chess.Board(board)
-    move = chess.Move.from_uci(from_pos + to_pos)
-    b.push(move)
+    b.push(chess.Move.from_uci(move))
     return b.fen()
 
 
@@ -29,5 +28,6 @@ def write_game_to_file(board: str, file_path: str) -> None:
     """Write the game moves to a file in PGN format"""
     b = chess.Board(board)
     game = chess.pgn.Game.from_board(b)
+
     with open(file_path, "w") as f:
         f.write(str(game))
