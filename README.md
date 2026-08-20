@@ -25,3 +25,8 @@ PYTHONPATH=src python src/main.py --decrypt --input=examples/ex1_text/output --o
 ## Caveat!
 
 You cannot convert a "real" chess game into data/text, because the decryption is expecting one of two possible moves out of all the possible moves for each position. The two possible moves depends on the shuffle seed. So you can only decrypt a chess game that was intended to be decrypted or encrypted with this algorithm previously.
+
+## Example
+
+This chess game stores the text "Hello World!"
+https://lichess.org/5d1n3dHm
