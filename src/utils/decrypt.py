@@ -18,9 +18,7 @@ class ChessDecrypter:
 
     def decrypt(self):
         # Read all game files in the input directory
-        game_files = sorted(
-            f for f in os.listdir(self.input_dir) if f.endswith(".pgn")
-        )
+        game_files = sorted(f for f in os.listdir(self.input_dir) if f.endswith(".pgn"))
 
         for game_file in game_files:
             file_path = os.path.join(self.input_dir, game_file)
@@ -45,9 +43,7 @@ class ChessDecrypter:
             elif move.uci() == possible_moves[1]:
                 self.bits.append("1")
             else:
-                raise ValueError(
-                    f"Unexpected move {move.uci()} not in possible moves"
-                )
+                raise ValueError(f"Unexpected move {move.uci()} not in possible moves")
 
             # Collect a full byte
             if len(self.bits) == 8:
