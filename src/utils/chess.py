@@ -6,13 +6,10 @@ def new_game() -> str:
     return chess.STARTING_FEN
 
 
-def get_possible_moves(board: str, position: str) -> list:
-    """Get an ordered list of possible moves for a piece at a position"""
-
+def get_possible_moves(board: str) -> list:
+    """Get an ordered list of all possible moves for a given position"""
     b = chess.Board(board)
-    square = chess.parse_square(position)
-    moves = [m for m in b.legal_moves if m.from_square == square]
-    return [chess.square_name(m.to_square) for m in moves]
+    return sorted(m.uci() for m in b.legal_moves)
 
 
 def make_move(board: str, from_pos: str, to_pos: str) -> str:
@@ -26,3 +23,11 @@ def make_move(board: str, from_pos: str, to_pos: str) -> str:
 def is_game_over(board: str) -> bool:
     """Check if the game is over"""
     return chess.Board(board).is_game_over()
+
+
+def write_game_to_file(board: str, file_path: str) -> None:
+    """Write the game moves to a file in PGN format"""
+    b = chess.Board(board)
+    game = chess.pgn.Game.from_board(b)
+    with open(file_path, "w") as f:
+        f.write(str(game))
