@@ -4,12 +4,14 @@ from utils.encrypt import ChessEncrypter
 
 
 def encrypt(input_path: str, output_path: str) -> None:
+    """Encrypt the input file into chess game PGN files in the output dir."""
     print(f"Encrypting {input_path} to {output_path}")
     encrypter = ChessEncrypter(input_file=input_path, output_dir=output_path)
     encrypter.encrypt()
 
 
 def decrypt(input_path: str, output_path: str) -> None:
+    """Decrypt chess game PGN files from the input dir to the output file."""
     print(f"Decrypting {input_path} to {output_path}")
     decrypter = ChessDecrypter(input_dir=input_path, output_file=output_path)
     decrypter.decrypt()
