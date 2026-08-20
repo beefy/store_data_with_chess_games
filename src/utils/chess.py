@@ -1,3 +1,4 @@
+import random
 import chess
 import chess.pgn
 
@@ -7,9 +8,17 @@ def new_game() -> chess.Board:
     return chess.Board()
 
 
-def get_possible_moves(board: chess.Board) -> list:
-    """Get an ordered list of all possible moves for a given position"""
-    return sorted(m.uci() for m in board.legal_moves)
+def get_possible_moves(board: chess.Board, seed: int = 0) -> list:
+    """Get a shuffled list of all possible moves for a given position.
+
+    The shuffle is deterministic: it uses the seed combined with the
+    current move number (board.ply()) so that the same seed produces the
+    same order at each move, allowing encryption and decryption to agree.
+    """
+    moves = sorted(m.uci() for m in board.legal_moves)
+    rng = random.Random(seed + board.ply())
+    rng.shuffle(moves)
+    return moves
 
 
 def make_move(board: chess.Board, move: str) -> chess.Board:

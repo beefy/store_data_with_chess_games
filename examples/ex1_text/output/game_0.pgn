@@ -4,6 +4,6 @@
 [Round "?"]
 [White "?"]
 [Black "?"]
-[Result "1/2-1/2"]
+[Result "*"]
 
-1. a3 a6 2. Ra2 a5 3. a4 Ra6 4. Ra1 Ra7 5. Ra2 Ra8 6. Ra3 Ra6 7. Ra1 Ra8 8. Ra2 Ra7 9. Ra1 Ra8 10. Ra3 Ra6 11. Ra2 Ra8 12. Ra1 Ra6 13. Ra2 Ra8 14. Ra3 Ra6 15. Ra2 Ra8 16. Ra1 Ra6 17. Ra2 Ra8 1/2-1/2
+1. e3 Nc6 2. Nc3 a6 3. Na4 h5 4. Bxa6 d6 5. Bb5 Ra6 6. Ke2 e5 7. Kf3 Ra5 8. g3 Nh6 9. Bf1 Rd5 10. d4 Rh7 11. h3 Bd7 12. e4 Ng4 13. Qe1 Nf6 14. g4 Nb4 15. Bg5 Ra5 16. Rh2 exd4 17. Be3 hxg4+ 18. Ke2 dxe3 19. Qc1 Rh4 20. Rb1 gxh3 21. Kd1 Qe7 22. Bb5 Qxe4 23. Qxe3 Nh7 24. Qc1 Ke7 25. Kd2 Bc6 26. Rg2 Ke6 27. Be2 Rc5 28. Nxc5+ Ke7 29. Nd3 Kd8 30. Bf1 Ke7 31. Rxg7 Nxd3 32. Rg3 Ba4 33. Rg7 Qe1+ 34. Qxe1+ Kd7 35. Bxh3+ Kd8 36. Rg6 Rd4 37. Qe5 Nxb2+ 38. Ke2 Bg7 39. Rf6 Bb5+ 40. Kf3 Bh8 41. Qh5 Re4 42. Qd5 Rb4 43. Qc4 Rb3+ 44. Kg2 Bxc4 45. Rg6 d5 46. Rf6 Na4 47. Rxb3 Bxb3 48. cxb3 c5 *
