@@ -1,4 +1,5 @@
 import argparse
+from utils.decrypt import ChessDecrypter
 from utils.encrypt import ChessEncrypter
 
 
@@ -9,7 +10,9 @@ def encrypt(input_path: str, output_path: str) -> None:
 
 
 def decrypt(input_path: str, output_path: str) -> None:
-    print("decrypting!")
+    print(f"Decrypting {input_path} to {output_path}")
+    decrypter = ChessDecrypter(input_dir=input_path, output_file=output_path)
+    decrypter.decrypt()
 
 
 if __name__ == "__main__":
@@ -35,4 +38,3 @@ if __name__ == "__main__":
         encrypt(args.input, args.output)
     elif args.decrypt:
         decrypt(args.input, args.output)
-
