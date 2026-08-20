@@ -1,4 +1,5 @@
 import chess
+import chess.pgn
 
 
 def new_game() -> str:
