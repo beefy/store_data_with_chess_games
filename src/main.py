@@ -1,8 +1,11 @@
 import argparse
+from src.utils.encrypt import ChessEncrypter
 
 
 def encrypt(input_path: str, output_path: str) -> None:
-    print("encrypting!")
+    print(f"Encrypting {input_path} to {output_path}")
+    encrypter = ChessEncrypter(input_file=input_path, output_dir=output_path)
+    encrypter.encrypt()
 
 
 def decrypt(input_path: str, output_path: str) -> None:
