@@ -21,3 +21,7 @@ Convert chess games to a text file
 ```
 PYTHONPATH=src python src/main.py --decrypt --input=examples/ex1_text/output --output=examples/ex1_text/input2.txt 
 ```
+
+## Caveat!
+
+You cannot convert a "real" chess game into data/text, because the decryption is expecting one of two possible moves out of all the possible moves for each position. The two possible moves depends on the shuffle seed. So you can only decrypt a chess game that was intended to be decrypted or encrypted with this algorithm previously.
