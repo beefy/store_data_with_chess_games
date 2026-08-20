@@ -2,33 +2,30 @@ import chess
 import chess.pgn
 
 
-def new_game() -> str:
+def new_game() -> chess.Board:
     """Initialize a new chess game and return the board state"""
-    return chess.STARTING_FEN
+    return chess.Board()
 
 
-def get_possible_moves(board: str) -> list:
+def get_possible_moves(board: chess.Board) -> list:
     """Get an ordered list of all possible moves for a given position"""
-    b = chess.Board(board)
-    return sorted(m.uci() for m in b.legal_moves)
+    return sorted(m.uci() for m in board.legal_moves)
 
 
-def make_move(board: str, move: str) -> str:
+def make_move(board: chess.Board, move: str) -> chess.Board:
     """Make a move on the board and return the new board state"""
-    b = chess.Board(board)
-    b.push(chess.Move.from_uci(move))
-    return b.fen()
+    new_board = board.copy()
+    new_board.push(chess.Move.from_uci(move))
+    return new_board
 
 
-def is_game_over(board: str) -> bool:
+def is_game_over(board: chess.Board) -> bool:
     """Check if the game is over"""
-    return chess.Board(board).is_game_over()
+    return board.is_game_over()
 
 
-def write_game_to_file(board: str, file_path: str) -> None:
+def write_game_to_file(board: chess.Board, file_path: str) -> None:
     """Write the game moves to a file in PGN format"""
-    b = chess.Board(board)
-    game = chess.pgn.Game.from_board(b)
-
+    game = chess.pgn.Game.from_board(board)
     with open(file_path, "w") as f:
         f.write(str(game))
