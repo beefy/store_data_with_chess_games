@@ -1,5 +1,5 @@
 import argparse
-from src.utils.encrypt import ChessEncrypter
+from utils.encrypt import ChessEncrypter
 
 
 def encrypt(input_path: str, output_path: str) -> None:

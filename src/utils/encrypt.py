@@ -1,4 +1,4 @@
-from src.utils import chess
+from utils import chess
 import os
 
 class ChessEncrypter:
@@ -29,6 +29,13 @@ class ChessEncrypter:
                         self.store_one()
                 # Read next byte
                 byte = f.read(1)
+
+        # Write the final game to a file
+        chess.write_game_to_file(
+            self.game,
+            os.path.join(self.output_dir, f"game_{self.game_counter}.pgn"),
+        )
+        print(f"Game {self.game_counter} is over. Writing to file and starting a new game.")
 
     def check_game_over(self):
         if chess.is_game_over(self.game):
